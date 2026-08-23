@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>실시간 공유 그림판</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+</head>
+<body>
+  <div class="header">
+    <div class="row">
+      <span class="label">내 코드:</span>
+      <strong id="myCode">생성중...</strong>
+      <button id="copyBtn">복사</button>
+    </div>
+    <div class="row">
+      <input type="text" id="targetCode" placeholder="상대 코드 입력">
+      <button id="connectBtn">연결</button>
+      <span id="status" class="status-off">●</span>
+    </div>
+  </div>
+
+  <div class="palette">
+    <button class="color-dot active" data-color="#ffffff" style="background:#ffffff;"></button>
+    <button class="color-dot" data-color="#ef4444" style="background:#ef4444;"></button>
+    <button class="color-dot" data-color="#38bdf8" style="background:#38bdf8;"></button>
+    <button class="color-dot" data-color="#10b981" style="background:#10b981;"></button>
+    <button class="color-dot" data-color="#fbbf24" style="background:#fbbf24;"></button>
+    <button id="eraserBtn" class="eraser-btn">지우개</button>
+    <button id="clearBtn" class="clear-btn">전체삭제</button>
+  </div>
+
+  <canvas id="board"></canvas>
+
+  <script src="app.js"></script>
+</body>
+</html>
