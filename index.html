@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>치이카와 무인도 그림판</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+</head>
+<body>
+  <!-- 상단 컨트롤 헤더 -->
+  <header class="header">
+    <div class="title-bar">
+      <span class="chiikawa-icons">🥺💙🐰🌰✨</span>
+      <h1 class="title">치이카와 그림판 <span class="badge">야하-!</span></h1>
+    </div>
+
+    <div class="connection-box">
+      <div class="row">
+        <span class="label">내 코드:</span>
+        <strong id="myCode">불러오는 중...</strong>
+        <button id="copyBtn" class="btn-yellow">복사</button>
+      </div>
+      <div class="row">
+        <input type="text" id="targetCode" placeholder="친구 코드 입력하기">
+        <button id="connectBtn" class="btn-pink">연결</button>
+        <span id="status" class="status-off" title="연결 상태">●</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- 툴바 및 팔레트 -->
+  <nav class="palette">
+    <div class="color-group">
+      <button class="color-dot active" data-color="#374151" style="background:#374151;" title="먹색"></button>
+      <button class="color-dot" data-color="#ff7b96" style="background:#ff7b96;" title="핑크"></button>
+      <button class="color-dot" data-color="#38bdf8" style="background:#38bdf8;" title="블루"></button>
+      <button class="color-dot" data-color="#facc15" style="background:#facc15;" title="옐로우"></button>
+      <button class="color-dot" data-color="#fb923c" style="background:#fb923c;" title="오렌지"></button>
+      <button class="color-dot" data-color="#a855f7" style="background:#a855f7;" title="퍼플"></button>
+      <button class="color-dot" data-color="#ffffff" style="background:#ffffff;" title="화이트"></button>
+    </div>
+    
+    <div class="tool-group">
+      <button id="eraserBtn" class="tool-btn">지우개</button>
+      <button id="clearBtn" class="tool-btn btn-danger">전체삭제</button>
+    </div>
+  </nav>
+
+  <!-- 투명 캔버스 드로잉 영역 -->
+  <main class="canvas-wrapper">
+    <canvas id="board"></canvas>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
