@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>우사기 노트</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Firebase SDK 라이브러리 (필수) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-messaging-compat.js"></script>
+  
+  <!-- PeerJS 라이브러리 -->
+  <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <!-- 상단 컨트롤 패널 -->
+    <header class="top-bar">
+      <div class="code-box" id="myCode" title="클릭해서 복사">내 코드 생성 중...</div>
+      <button id="callBtn" class="btn call-btn">호출</button>
+      <div class="clock-box" id="koreaClock" title="터치하여 알림 켜기">--:--:--</div>
+    </header>
+
+    <div class="connect-bar">
+      <input type="text" id="targetCode" placeholder="친구 코드 입력하기" spellcheck="false" autocomplete="off">
+      <button id="connectBtn" class="btn connect-btn">연결</button>
+      <button id="disconnectBtn" class="btn disconnect-btn" title="연결 해제">✕</button>
+      <div id="status" class="status-off" title="연결 대기 중"></div>
+    </div>
+
+    <!-- 색상 팔레트 및 도구 -->
+    <div class="toolbar">
+      <div class="palette">
+        <div class="color-dot active" data-color="#374151" style="background: #374151;"></div>
+        <div class="color-dot" data-color="#f43f5e" style="background: #f43f5e;"></div>
+        <div class="color-dot" data-color="#0ea5e9" style="background: #0ea5e9;"></div>
+        <div class="color-dot" data-color="#eab308" style="background: #eab308;"></div>
+        <div class="color-dot" data-color="#f97316" style="background: #f97316;"></div>
+        <div class="color-dot" data-color="#a855f7" style="background: #a855f7;"></div>
+        <div class="color-dot" data-color="#ffffff" style="background: #ffffff; border: 1px solid #ddd;"></div>
+      </div>
+      <div class="tool-buttons">
+        <button id="eraserBtn" class="btn tool-btn">지우개</button>
+        <button id="clearBtn" class="btn clear-btn">전체삭제</button>
+      </div>
+    </div>
+
+    <!-- 드로잉 캔버스 -->
+    <main class="canvas-area">
+      <canvas id="board"></canvas>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
